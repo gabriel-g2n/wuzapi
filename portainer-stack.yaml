@@ -1,13 +1,13 @@
 version: '3.8'
 services:  
   wuzapi:
-    image: g2n/wuzapi:latest
+    image: NOME DA IMAGEM BUILDADA
     volumes:
       - wuzapi_dbdata:/app/dbdata
       - wuzapi_files:/app/files
     environment:
-      - WUZAPI_ADMIN_TOKEN=VnUtZb9DRnmxPpAUzShBNsUWFH9yywND
-      - WUZAPI_ADMIN_USER=Gabriel
+      - WUZAPI_ADMIN_TOKEN=TOKEN
+      - WUZAPI_ADMIN_USER=USUARIO
 
     deploy:
       mode: replicated
@@ -22,7 +22,7 @@ services:
       labels:
           - traefik.enable=true
           #SSL
-          - traefik.http.routers.wuzapi.rule=Host(`wuzapi.g2ngroup.com`)
+          - traefik.http.routers.wuzapi.rule=Host(`DOMINIO`)
           - traefik.http.services.wuzapi.loadbalancer.server.port=8080
           - traefik.http.routers.wuzapi.service=wuzapi
           - traefik.http.routers.wuzapi.tls.certresolver=le
